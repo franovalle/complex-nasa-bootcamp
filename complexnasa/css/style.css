@@ -17,26 +17,7 @@
 	clear: both;
 }
 
-/******************************************
-/* BASE STYLES
-/*******************************************/
-
-body {
-
-}
-
-
-/******************************************
-/* LAYOUT
-/*******************************************/
-header {
-
-}
-
-footer {
-
-}
-
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
+/*li {
+ margin-right: 5rem;
+}*/
+/*Note to self: still not sure, how to fix spacing, the app is functional, will work on styling later
