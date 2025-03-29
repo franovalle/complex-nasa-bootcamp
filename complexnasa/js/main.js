@@ -5,15 +5,18 @@ fetch ("https://data.nasa.gov/resource/gvk9-iz74.json")
 .then (res => res.json())
 .then (data => {
     console.log(data);
-    console.log(data[0]);
-    console.log(data[0].location.latitude)
-    console.log(data[0].location.longitude)
+    //console.log(data[0].location.latitude)
+    //console.log(data[0].location.longitude)
     data.forEach(theObjects => {
-    console.log(theObjects.center)
+    console.log(theObjects.facility)
+    console.log(theObjects.city)
     console.log(theObjects.state)
+    console.log(theObjects.location.latitude);
+    console.log(theObjects.location.longitude);
     var ul = document.querySelector("#ul")
     var li = document.createElement("li")
-    li.appendChild(document.createTextNode(theObjects.center))
+    li.appendChild(document.createTextNode(theObjects.facility))
+    li.appendChild(document.createTextNode(theObjects.city))
     li.appendChild(document.createTextNode(theObjects.state))
     ul.appendChild(li)
     fetch  (`http://api.weatherapi.com/v1/forecast.json?key=af481407760e43718b5232620252803&q=${theObjects.location.latitude}, ${theObjects.location.longitude}&days=1&aqi=no&alerts=no`)
