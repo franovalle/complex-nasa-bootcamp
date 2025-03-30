@@ -13,11 +13,17 @@ fetch ("https://data.nasa.gov/resource/gvk9-iz74.json")
     console.log(theObjects.state)
     console.log(theObjects.location.latitude);
     console.log(theObjects.location.longitude);
+    let results = theObjects.facility + ','
+    console.log(results)
+    let resultsOne = theObjects.city + ','
+    console.log(resultsOne)
+    let resultsTwo = theObjects.state + ','
+    console.log(resultsTwo)
     var ul = document.querySelector("#ul")
     var li = document.createElement("li")
-    li.appendChild(document.createTextNode(theObjects.facility))
-    li.appendChild(document.createTextNode(theObjects.city))
-    li.appendChild(document.createTextNode(theObjects.state))
+    li.appendChild(document.createTextNode(results))
+    li.appendChild(document.createTextNode(resultsOne))
+    li.appendChild(document.createTextNode(resultsTwo))
     ul.appendChild(li)
     fetch  (`http://api.weatherapi.com/v1/forecast.json?key=af481407760e43718b5232620252803&q=${theObjects.location.latitude}, ${theObjects.location.longitude}&days=1&aqi=no&alerts=no`)
 .then(res => res.json())
@@ -25,7 +31,10 @@ fetch ("https://data.nasa.gov/resource/gvk9-iz74.json")
     console.log(data);
     console.log(data.current);
     console.log(data.current.temp_f)
-    li.appendChild(document.createTextNode(data.current.temp_f))
+    let resultsThree = data.current.temp_f + 'F'
+    console.log(resultsThree)
+    li.appendChild(document.createTextNode(resultsThree))
+    ul.appendChild(li)
 
     
 })
@@ -44,7 +53,7 @@ fetch ("https://data.nasa.gov/resource/gvk9-iz74.json")
 })
 }
 
-
+//Note to self: Learn how to put space between li elements
 /*Note to self: reference on how to appened an li to ul from to-do list notes 
 
 function addItem() {
